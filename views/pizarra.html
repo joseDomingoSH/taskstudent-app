@@ -1,0 +1,22 @@
+<div>
+    <input id="texto" placeholder="Nueva tarea">
+    <input type="date" id="fecha">
+    <button onclick="crear()">Agregar</button>
+
+    <div class="board">
+        <div class="column" ondrop="drop(event,'por hacer')" ondragover="allowDrop(event)">
+            <h3>Por hacer</h3>
+            <div id="por hacer"></div>
+        </div>
+
+        <div class="column" ondrop="drop(event,'haciendo')" ondragover="allowDrop(event)">
+            <h3>Haciendo</h3>
+            <div id="haciendo"></div>
+        </div>
+
+        <div class="column" ondrop="drop(event,'finalizado')" ondragover="allowDrop(event)">
+            <h3>Finalizado</h3>
+            <div id="finalizado"></div>
+        </div>
+    </div>
+</div>
