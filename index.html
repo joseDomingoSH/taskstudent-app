@@ -7,19 +7,37 @@
 </head>
 
 <body>
+
+	<div class="layout">
+
+    	<div id="menu"></div>
+    	<div id="contenido"></div>
+		
+	</div>
+
+	<script>
+		async function cargarVista(ruta, contenedor) {
+    		const res = await fetch(ruta);
+   			const html = await res.text();
+    		document.getElementById(contenedor).innerHTML = html;
+		}
+
+		cargarVista("views/menu_vertical.html", "menu");
+
+		async function cargarLogin() {
+    		await cargarVista("views/login.html", "contenido");
+		}
+
+
+		if (localStorage.getItem("sesionActiva") === "true") {
+    		cargarPizarra();
+		} else {
+    		cargarLogin();
+		}
+	</script>
+	<script src="control/tareas.js"></script>
+	<script src="control/login.js"></script>
 <h1>Tareas </h1>
-
-	<section id ="InicioSesion" >
-		<div>
-		<h2>Bienvenido</h2>
-		<input id ="user" placeholder ="Usuario"/>
-		<hr />
-		<input id ="pass" type ="password" placeholder ="Contraseña"/>
-		<hr />
-		<button onclick ="login()">Login</button>
-		</div>
-	</section>
-
 
 </body>
 
