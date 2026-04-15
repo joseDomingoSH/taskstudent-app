@@ -14,17 +14,20 @@
             align-items: center;
             padding: 20px;
         }
+
         .input-area {
             background: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
+
         .board {
             display: flex;
             gap: 15px;
         }
+
         .column {
             background-color: #ebedf0;
             width: 250px;
@@ -32,42 +35,52 @@
             border-radius: 5px;
             padding: 10px;
         }
-        .column h3 { text-align: center; color: #444; }
-        .task-list { min-height: 250px; }
+
+        .column h3 {
+            text-align: center;
+            color: #444;
+        }
+
+        .task-list {
+            min-height: 250px;
+        }
+
         .task {
             background: white;
             margin: 10px 0;
             padding: 10px;
             border-radius: 4px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
             cursor: move;
         }
     </style>
 </head>
 <body>
+
     <h1>Mi Pizarra Profesional</h1>
 
-
-<div>
-    <input id="texto" placeholder="Nueva tarea">
-    <input type="date" id="fecha">
-    <button onclick="crear()">Agregar</button>
+    <div class="input-area">
+        <input type="text" id="texto" placeholder="Nueva tarea">
+        <input type="date" id="fecha">
+        <button onclick="crear()">Agregar</button>
+    </div>
 
     <div class="board">
-        <div class="column" ondrop="drop(event,'por hacer')" ondragover="allowDrop(event)">
+        <div class="column" ondrop="drop(event, 'por hacer')" ondragover="allowDrop(event)">
             <h3>Por hacer</h3>
-            <div id="por hacer"></div>
+            <div id="por hacer" class="task-list"></div>
         </div>
 
-        <div class="column" ondrop="drop(event,'haciendo')" ondragover="allowDrop(event)">
+        <div class="column" ondrop="drop(event, 'haciendo')" ondragover="allowDrop(event)">
             <h3>Haciendo</h3>
-            <div id="haciendo"></div>
+            <div id="haciendo" class="task-list"></div>
         </div>
 
-        <div class="column" ondrop="drop(event,'finalizado')" ondragover="allowDrop(event)">
+        <div class="column" ondrop="drop(event, 'finalizado')" ondragover="allowDrop(event)">
             <h3>Finalizado</h3>
-            <div id="finalizado"></div>
+            <div id="finalizado" class="task-list"></div>
         </div>
     </div>
-</div>
 
+</body>
+</html>
