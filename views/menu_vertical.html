@@ -1,1 +1,236 @@
-<button onclick="logout()">Cerrar Sesión</button>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú Vertical Admin</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+display:flex;
+background:#eef2f7;
+}
+
+.sidebar{
+width:260px;
+height:100vh;
+background:linear-gradient(180deg,#1f2937,#111827);
+padding:20px;
+color:white;
+}
+
+.sidebar h2{
+text-align:center;
+margin-bottom:25px;
+font-size:24px;
+}
+
+.sidebar a{
+display:block;
+text-decoration:none;
+color:white;
+padding:14px;
+margin:10px 0;
+border-radius:12px;
+background:#374151;
+transition:0.3s;
+font-weight:bold;
+}
+
+.sidebar a:hover{
+background:#2563eb;
+transform:translateX(5px);
+}
+
+.content{
+flex:1;
+padding:40px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+min-height:500px;
+}
+
+h1{
+margin-bottom:20px;
+color:#1f2937;
+}
+
+input, textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+button{
+padding:12px 20px;
+border:none;
+background:#2563eb;
+color:white;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+transition:.3s;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+th,td{
+padding:12px;
+border-bottom:1px solid #ddd;
+text-align:left;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>Administrador</h2>
+
+<a href="#" onclick="usuarios()">Gestionar Usuarios</a>
+<a href="#" onclick="tareas()">Agregar Tareas</a>
+<a href="#" onclick="hacer()">Hacer Tareas</a>
+<a href="#" onclick="comentarios()">Comentarios</a>
+<a href="#" onclick="config()">Configuración</a>
+<a href="#" onclick="cerrar()">Cerrar Sesión</a>
+</div>
+
+<div class="content">
+<div class="card" id="panel">
+
+<h1>Bienvenido Administrador</h1>
+<p>Selecciona una opción del menú lateral.</p>
+
+</div>
+</div>
+
+<script>
+
+function usuarios(){
+document.getElementById("panel").innerHTML = `
+<h1>Gestión de Usuarios</h1>
+
+<input placeholder="Nombre del usuario">
+<input placeholder="Correo electrónico">
+<button>Agregar Usuario</button>
+
+<table>
+<tr>
+<th>Nombre</th>
+<th>Correo</th>
+</tr>
+
+<tr>
+<td>Juan</td>
+<td>juan@gmail.com</td>
+</tr>
+
+<tr>
+<td>Ana</td>
+<td>ana@gmail.com</td>
+</tr>
+
+</table>
+`;
+}
+
+function tareas(){
+document.getElementById("panel").innerHTML = `
+<h1>Agregar Tareas</h1>
+
+<input placeholder="Nombre de la tarea">
+<textarea placeholder="Descripción"></textarea>
+
+<button>Guardar Tarea</button>
+`;
+}
+
+function hacer(){
+document.getElementById("panel").innerHTML = `
+<h1>Tareas Pendientes</h1>
+
+<p><input type="checkbox"> Revisar sistema</p>
+<p><input type="checkbox"> Aprobar usuarios</p>
+<p><input type="checkbox"> Actualizar inventario</p>
+`;
+}
+
+function comentarios(){
+document.getElementById("panel").innerHTML = `
+<h1>Comentarios</h1>
+
+<textarea placeholder="Escribe un comentario para los usuarios"></textarea>
+
+<button>Enviar Comentario</button>
+`;
+}
+
+function config(){
+document.getElementById("panel").innerHTML = `
+<h1>Configuración</h1>
+
+<p>Modo Oscuro</p>
+<button>Activar</button>
+
+<p style="margin-top:15px;">Cambiar contraseña</p>
+<input placeholder="Nueva contraseña">
+<button>Guardar</button>
+`;
+}
+
+function cerrar(){
+document.getElementById("panel").innerHTML = `
+<h1>Cerrar Sesión</h1>
+
+<p>¿Estás seguro que deseas salir del sistema?</p>
+
+<button onclick="confirmarSalir()">Sí, salir</button>
+<button onclick="cancelarSalir()" style="background:#6b7280; margin-left:10px;">Cancelar</button>
+`;
+}
+
+function confirmarSalir(){
+document.getElementById("panel").innerHTML = `
+<h1>Sesión Cerrada</h1>
+
+<p>Has salido correctamente.</p>
+
+<button onclick="location.reload()">Volver al inicio</button>
+`;
+}
+
+function cancelarSalir(){
+document.getElementById("panel").innerHTML = `
+<h1>Bienvenido Administrador</h1>
+<p>Selecciona una opción del menú lateral.</p>
+`;
+}
+
+</script>
+
+</body>
+</html>
+
+
