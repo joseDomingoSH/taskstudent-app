@@ -21,11 +21,17 @@
    			const html = await res.text();
     		document.getElementById(contenedor).innerHTML = html;
 		}
-
+		async function cargarRegistro() {
+			await cargarVista("views/registro.html", "contenido");
+			
+		}
 		cargarVista("views/menu_vertical.html", "menu");
 
 		async function cargarLogin() {
     		await cargarVista("views/login.html", "contenido");
+		}
+		async function cargarPizarra() {
+			await cargarVista("views/pizarra.html", "contenido");
 		}
 
 
