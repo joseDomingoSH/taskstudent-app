@@ -42,3 +42,7 @@ if (localStorage.getItem("sesionActiva") === "true") {
 } else {
     cargarLogin();
 }
+
+function registro() {
+    location.href = "views/registro.html";
+}   
